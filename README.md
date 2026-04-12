@@ -3,7 +3,7 @@
 My ERP is a fully functional, professional accounting and business management prototype.
 
 ## Tech Stack
-This project is built from scratch utilizing purely vanilla web technologies without any external frameworks or dependencies:
+This project is built from scratch utilizing purely web technologies without any external frameworks or dependencies:
 - **HTML5:** Standard semantic markup for structure.
 - **CSS3:** Custom styling, variables, layout grids, and native Light/Dark mode support.
 - **JavaScript:** DOM manipulation, module-based UI rendering, dummy authentication, and complete data persistence using `localStorage`.
