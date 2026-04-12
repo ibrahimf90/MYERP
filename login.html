@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - My ERP</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="auth-container">
+      <button
+        id="theme-toggle"
+        class="btn btn-outline"
+        style="position: absolute; top: 1rem; right: 1rem; padding: 0.5rem"
+        aria-label="Toggle Dark Mode"
+      >
+        🌙
+      </button>
+
+      <div class="auth-card">
+        <div style="text-align: center; margin-bottom: 2rem">
+          <h1
+            style="
+              color: var(--primary);
+              font-size: 2rem;
+              margin-bottom: 0.5rem;
+            "
+          >
+            💼 My ERP
+          </h1>
+          <p class="text-subtle">
+            Enter your credentials to access the dashboard
+          </p>
+        </div>
+
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="username" class="form-label">Username or Email</label>
+            <input
+              type="text"
+              id="username"
+              class="form-control"
+              placeholder="admin@example.com"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              id="password"
+              class="form-control"
+              placeholder="••••••••"
+              required
+            />
+          </div>
+
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 1.5rem;
+              font-size: 0.9rem;
+            "
+          >
+            <label
+              style="
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                color: var(--text-secondary);
+                cursor: pointer;
+              "
+            >
+              <input type="checkbox" checked /> Remember me
+            </label>
+            <a
+              href="#"
+              style="color: var(--primary); text-decoration: underline"
+              >Forgot Password?</a
+            >
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="loginBtn">
+            Login
+          </button>
+        </form>
+
+        <p
+          style="
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+          "
+        >
+          <a
+            href="index.html"
+            style="color: var(--primary); text-decoration: underline"
+            >← Back to Home</a
+          >
+        </p>
+      </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script>
+      const themeToggle = document.getElementById("theme-toggle");
+      const root = document.documentElement;
+
+      if (localStorage.getItem("theme") === "dark") {
+        root.classList.add("dark");
+        themeToggle.textContent = "☀️";
+      }
+
+      themeToggle.addEventListener("click", () => {
+        root.classList.toggle("dark");
+        if (root.classList.contains("dark")) {
+          localStorage.setItem("theme", "dark");
+          themeToggle.textContent = "☀️";
+        } else {
+          localStorage.setItem("theme", "light");
+          themeToggle.textContent = "🌙";
+        }
+      });
+    </script>
+  </body>
+</html>

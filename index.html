@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My ERP - Professional Accounting System</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="index.html" class="nav-brand">💼 My ERP</a>
+      <div class="nav-links">
+        <nav>
+          <a href="index.html" style="margin-right: 1.5rem">Home</a>
+          <a href="pricing.html" style="margin-right: 1.5rem">Pricing</a>
+        </nav>
+        <a href="login.html" class="btn btn-primary">Login</a>
+        <button
+          id="theme-toggle"
+          class="btn btn-outline"
+          style="padding: 0.5rem; margin-left: 1rem"
+          aria-label="Toggle Dark Mode"
+        >
+          🌙
+        </button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-slider" id="heroSlider">
+        <div
+          class="slide active"
+          style="
+            background-image: url(&quot;https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80&quot;);
+          "
+        ></div>
+        <div
+          class="slide"
+          style="
+            background-image: url(&quot;https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80&quot;);
+          "
+        ></div>
+        <div
+          class="slide"
+          style="
+            background-image: url(&quot;https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80&quot;);
+          "
+        ></div>
+      </div>
+
+      <div class="hero-content">
+        <h1 class="heading-primary">Streamline Your Business Operations</h1>
+        <p class="text-subtle" style="font-size: 1.25rem">
+          A professional accounting ERP system designed by a software
+          development team for small, medium, and large businesses to manage
+          their accounting, clients, suppliers, invoices, and financial
+          operations efficiently.
+        </p>
+        <a
+          href="login.html"
+          class="btn btn-primary"
+          style="font-size: 1.1rem; padding: 0.75rem 2rem"
+          >Try Demo</a
+        >
+      </div>
+    </section>
+
+    <section class="section features-section">
+      <div class="container text-center">
+        <h2 class="heading-secondary">Everything you need to grow</h2>
+        <p
+          class="text-subtle"
+          style="max-width: 600px; margin: 0 auto 3rem auto"
+        >
+          My ERP brings all your mission-critical data into one unified
+          dashboard, accessible anywhere, anytime.
+        </p>
+      </div>
+    </section>
+
+    <script>
+      const slides = document.querySelectorAll(".slide");
+      let currentSlide = 0;
+
+      function nextSlide() {
+        slides[currentSlide].classList.remove("active");
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add("active");
+      }
+
+      setInterval(nextSlide, 5000);
+
+      const themeToggle = document.getElementById("theme-toggle");
+      const root = document.documentElement;
+
+      if (localStorage.getItem("theme") === "dark") {
+        root.classList.add("dark");
+        themeToggle.textContent = "☀️";
+      }
+
+      themeToggle.addEventListener("click", () => {
+        root.classList.toggle("dark");
+        if (root.classList.contains("dark")) {
+          localStorage.setItem("theme", "dark");
+          themeToggle.textContent = "☀️";
+        } else {
+          localStorage.setItem("theme", "light");
+          themeToggle.textContent = "🌙";
+        }
+      });
+    </script>
+  </body>
+</html>

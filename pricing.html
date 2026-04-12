@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing - My ERP</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="index.html" class="nav-brand">💼 My ERP</a>
+      <div class="nav-links">
+        <nav>
+          <a href="index.html" style="margin-right: 1.5rem">Home</a>
+          <a
+            href="pricing.html"
+            style="margin-right: 1.5rem; color: var(--primary)"
+            >Pricing</a
+          >
+        </nav>
+        <a href="login.html" class="btn btn-primary">Login</a>
+        <button
+          id="theme-toggle"
+          class="btn btn-outline"
+          style="padding: 0.5rem; margin-left: 1rem"
+          aria-label="Toggle Dark Mode"
+        >
+          🌙
+        </button>
+      </div>
+    </header>
+
+    <section class="section" style="margin-top: 4.5rem; padding-top: 4rem">
+      <div class="container text-center">
+        <h1 class="heading-primary">Simple, Transparent Pricing</h1>
+        <p
+          class="text-subtle"
+          style="max-width: 600px; margin: 0 auto 3rem auto"
+        >
+          Choose the best plan for your company. All plans come with 24/7
+          support and our core accounting features.
+        </p>
+
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <h3 style="color: var(--secondary); font-size: 1.25rem">
+              Small Company 🟢
+            </h3>
+            <div class="price">$29<span>/mo</span></div>
+            <p class="text-subtle" style="font-size: 0.9rem">
+              Perfect for startups and small teams.
+            </p>
+            <ul class="pricing-features">
+              <li>Users: Up to 2</li>
+              <li>Each extra user: $5/mo</li>
+              <li>Storage limit: 10GB</li>
+              <li>Basic accounting features</li>
+              <li>Standard Support</li>
+            </ul>
+            <a href="login.html" class="btn btn-outline" style="width: 100%"
+              >Choose Plan</a
+            >
+          </div>
+
+          <div class="pricing-card popular">
+            <h3 style="color: var(--primary); font-size: 1.25rem">
+              Medium Company 🔵
+            </h3>
+            <div class="price">$79<span>/mo</span></div>
+            <p class="text-subtle" style="font-size: 0.9rem">
+              For growing businesses with more needs.
+            </p>
+            <ul class="pricing-features">
+              <li>Users: Up to 5</li>
+              <li>Each extra user: $4/mo</li>
+              <li>Storage limit: 50GB</li>
+              <li>Advanced reporting & modules</li>
+              <li>Priority Support</li>
+            </ul>
+            <a href="login.html" class="btn btn-primary" style="width: 100%"
+              >Choose Plan</a
+            >
+          </div>
+
+          <div class="pricing-card">
+            <h3 style="color: var(--warning); font-size: 1.25rem">
+              Large Company 🟣
+            </h3>
+            <div class="price">$199<span>/mo</span></div>
+            <p class="text-subtle" style="font-size: 0.9rem">
+              Full enterprise capabilities.
+            </p>
+            <ul class="pricing-features">
+              <li>Users: Up to 10</li>
+              <li>Each extra user: $3/mo</li>
+              <li>Storage limit: Unlimited</li>
+              <li>Full features & API Access</li>
+              <li>24/7 Dedicated Support</li>
+            </ul>
+            <a href="login.html" class="btn btn-outline" style="width: 100%"
+              >Choose Plan</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const themeToggle = document.getElementById("theme-toggle");
+      const root = document.documentElement;
+
+      if (localStorage.getItem("theme") === "dark") {
+        root.classList.add("dark");
+        themeToggle.textContent = "☀️";
+      }
+
+      themeToggle.addEventListener("click", () => {
+        root.classList.toggle("dark");
+        if (root.classList.contains("dark")) {
+          localStorage.setItem("theme", "dark");
+          themeToggle.textContent = "☀️";
+        } else {
+          localStorage.setItem("theme", "light");
+          themeToggle.textContent = "🌙";
+        }
+      });
+    </script>
+  </body>
+</html>

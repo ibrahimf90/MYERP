@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - My ERP</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          💼 <span class="menu-text" style="margin-left: 0.5rem">My ERP</span>
+        </div>
+        <div class="sidebar-menu" id="sidebarMenu">
+          <div class="menu-item active" data-target="overview">
+            <span class="menu-icon">📊</span>
+            <span class="menu-text">Overview</span>
+          </div>
+          <div class="menu-item" data-target="customers">
+            <span class="menu-icon">👥</span>
+            <span class="menu-text">Customers</span>
+          </div>
+          <div class="menu-item" data-target="suppliers">
+            <span class="menu-icon">🏢</span>
+            <span class="menu-text">Suppliers</span>
+          </div>
+          <div class="menu-item" data-target="products">
+            <span class="menu-icon">📦</span>
+            <span class="menu-text">Products</span>
+          </div>
+          <div class="menu-item" data-target="sales">
+            <span class="menu-icon">🧾</span>
+            <span class="menu-text">Sales Invoices</span>
+          </div>
+          <div class="menu-item" data-target="purchases">
+            <span class="menu-icon">🛒</span>
+            <span class="menu-text">Purchase Invoices</span>
+          </div>
+          <div class="menu-item" data-target="bank">
+            <span class="menu-icon">🏦</span>
+            <span class="menu-text">Bank Payments</span>
+          </div>
+          <div class="menu-item" data-target="cash">
+            <span class="menu-icon">💵</span>
+            <span class="menu-text">Cash Payments</span>
+          </div>
+          <div class="menu-item" data-target="admin">
+            <span class="menu-icon">⚙️</span>
+            <span class="menu-text">Administration</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="topbar-left">
+            <button
+              id="toggleSidebar"
+              class="btn btn-outline"
+              style="padding: 0.5rem"
+            >
+              ☰
+            </button>
+            <h2 id="pageTitle" style="margin-left: 1rem; font-size: 1.25rem">
+              Overview
+            </h2>
+          </div>
+          <div class="topbar-right">
+            <button
+              id="themeToggle"
+              class="btn btn-outline"
+              style="padding: 0.5rem"
+              aria-label="Toggle Dark Mode"
+            >
+              🌙
+            </button>
+            <div style="display: flex; align-items: center; gap: 0.5rem">
+              <div
+                style="
+                  width: 32px;
+                  height: 32px;
+                  border-radius: 50%;
+                  background-color: var(--primary);
+                  color: white;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-weight: bold;
+                "
+              >
+                A
+              </div>
+              <span id="userNameDisplay">Admin</span>
+            </div>
+            <button
+              id="logoutBtn"
+              class="btn btn-outline"
+              style="
+                padding: 0.25rem 0.75rem;
+                border-color: var(--danger);
+                color: var(--danger);
+              "
+            >
+              Logout
+            </button>
+          </div>
+        </header>
+
+        <div class="content-area" id="contentArea">
+          <div id="module-overview" class="module-view active">
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <div class="metric-icon">👥</div>
+                <div>
+                  <div class="text-subtle">Total Customers</div>
+                  <div class="metric-value" id="count-customers">0</div>
+                </div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-icon">🏢</div>
+                <div>
+                  <div class="text-subtle">Total Suppliers</div>
+                  <div class="metric-value" id="count-suppliers">0</div>
+                </div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-icon">🧾</div>
+                <div>
+                  <div class="text-subtle">Sales Total</div>
+                  <div class="metric-value" id="count-sales">$0</div>
+                </div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-icon">🛒</div>
+                <div>
+                  <div class="text-subtle">Purchases Total</div>
+                  <div class="metric-value" id="count-purchases">$0</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="module-customers" class="module-view"></div>
+          <div id="module-suppliers" class="module-view"></div>
+          <div id="module-products" class="module-view"></div>
+          <div id="module-sales" class="module-view"></div>
+          <div id="module-purchases" class="module-view"></div>
+          <div id="module-bank" class="module-view"></div>
+          <div id="module-cash" class="module-view"></div>
+          <div id="module-admin" class="module-view"></div>
+        </div>
+      </main>
+    </div>
+
+    <div class="modal-overlay" id="formModal">
+      <div class="modal">
+        <div class="modal-header">
+          <h3 id="modalTitle">Add Item</h3>
+          <button id="closeModalBtn" class="btn" style="padding: 0.25rem">
+            ✕
+          </button>
+        </div>
+        <div class="modal-body" id="modalBody"></div>
+        <div class="modal-footer" id="modalFooter">
+          <button class="btn btn-outline" id="cancelModalBtn">Cancel</button>
+          <button class="btn btn-primary" id="saveModalBtn">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/modules.js"></script>
+  </body>
+</html>
